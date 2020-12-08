@@ -1,0 +1,13 @@
+prob = optimproblem;
+x = optimvar('x');
+y = optimvar('y');
+fun = x*y;
+prob.Objective = fun;
+prob.Constraints.cons1 = x - 4*y >= 0;
+prob.Constraints.cons2 = (100000*10^3)/(4*200*10^9*x*y^3) <= 0.01;
+prob.Constraints.cons3 = x >= 0.1;
+prob.Constraints.cons4 = y >= 0.1;
+x0.x = 0.1;
+x0.y = 0.1;
+sol = solve(prob,x0);
+disp(sol);  
